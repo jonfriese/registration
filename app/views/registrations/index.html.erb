@@ -1,0 +1,29 @@
+<h1>Listing Registrations</h1>
+
+<table>
+  <tr>
+    <th>Student</th>
+    <th>Class</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @registrations.each do |registration| %>
+  <tr>
+    <td><%= registration.student.name if registration.student %></td>
+    <td><%= registration.lecture.name if registration.lecture %></td>
+    <td><%= link_to 'Show', registration %></td>
+    <td><%= link_to 'Edit', edit_registration_path(registration) %></td>
+    <td><%= link_to 'Destroy', registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Registration', new_registration_path %> |
+<%= link_to 'Students', students_path %> |
+<%= link_to 'Classes', lectures_path %> |
+
+
